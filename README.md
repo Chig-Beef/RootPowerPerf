@@ -49,6 +49,6 @@ I have put in my baseline implementation in Go, which may help you with any othe
 Now _Go!_
 
 ## Leaderboard
-| Place | Username | Language | Time (ms) |
-| ----- | -------- | -------- | --------- |
-| 1     | ChigBeef | Go       | 51,038    |
+| Place | LangPlace | Username | Language | Time (ms) |
+| ----- | --------- | -------- | -------- | --------- |
+| 1     | 1         | ChigBeef | Go       | 51,038    |
