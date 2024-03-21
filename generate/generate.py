@@ -13,7 +13,19 @@
 #   limitations under the License.
 
 '''
-DEPRECATED: TOO SLOW, DON'T USE, USE `generate.exe` INSTEAD
+DEPRECATED: TOO SLOW, DON'T USE, USE
+`generate.exe` INSTEAD YOU CAN CREATE
+`generate.exe` BY COMPILING `main.go`
+IF YOU DON'T CARE, JUST GO TOUCH GRASS
+WHILE YOU WAIT
+
+ALSO, THIS WILL USE A LOT OF MEMORY,
+THE FACT IS THAT ONE MILLION ROWS TIMES
+ONE THOUSAND COLUMNS CREATES A MINIMUM
+OF A GIGABYTE, BUT THAT IS ABSOLUTE
+BEST CASE, WORST CASE IS 5GB, NOT
+INCLUDING ALL THE EXTRA MEMORY PYTHON
+USES TO STORE STRINGS
 '''
 
 import random
@@ -22,11 +34,15 @@ import sys
 # Use a different character if they want
 args = sys.argv
 if len(args) > 1:
-    line_character = args[1][0]
+    if args[1] == "nl":
+        line_character = '\n'
+    else:
+        line_character = args[1][0]
 else :
-    line_character = '\r'
+    line_character = '\n'
 
-count_lines = 100_000
+
+count_lines = 1_000_000
 count_nums = 1_000
 
 print("generating")
@@ -47,7 +63,7 @@ for i in range(len(data)):
 
 print("saving")
 
-with open("data.txt", "w") as file:
-    file.write(line_character.join(output))
+with open("../runner/data.txt", "wb") as file:
+    file.write(bytes(line_character.join(output), "ascii"))
 
 print("done")

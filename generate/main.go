@@ -30,6 +30,9 @@ func main() {
 	var line_character string
 	if len(args) > 1 {
 		line_character = string(args[1][0])
+		if args[1] == "nl" {
+			line_character = "\n"
+		}
 	} else {
 		line_character = "\r"
 	}
@@ -43,7 +46,7 @@ func main() {
 
 	for i := range count_lines {
 		data = append(data, []string{})
-		for _ = range count_nums {
+		for range count_nums {
 			n := uint16(rand.Uint32())
 			data[i] = append(data[i], strconv.Itoa(int(n)))
 		}
@@ -58,7 +61,7 @@ func main() {
 
 	fmt.Println("saving")
 
-	err := os.WriteFile("data.txt", []byte(strings.Join(output, line_character)), 0644)
+	err := os.WriteFile("../runner/data.txt", []byte(strings.Join(output, line_character)), 0644)
 	if err != nil {
 		log.Fatal(err)
 	}

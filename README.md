@@ -2,7 +2,7 @@
 A fun performance challenge! Try to complete the challenge as fast as you can in any language!
 
 ## How It Works
-Clone this project, and use `generate.py` to create a data set. It will be saved in the same directory (or folder) as `generate.py`.
+Clone this project, and use `generate.exe` (look down to the generating section) to create a data set. It will be saved in the same directory (or folder) as `generate.py`.
 Everybody else's solution will be in the `src` folder.
 Now you need to add your solution!
 
@@ -15,9 +15,10 @@ Now you need to add your solution!
 ## What You Must Do
 So what do you have to code?
 Firstly, you may notice that the `data.txt` file has many lines, and each line has integers seperated by commas.
+There will be one million lines, and each line will contain one thousand integers.
 __NOTE__ that lines are seperated with `\r`, but __you are permitted to change this by giving `generate.py` a different character__.
 Your job is to __sum__ those number in one of those lines.
-You then have to squish the result into uint16 range (0 -> 65,535).
+You then have to squish the result into uint16 range (0 -> 65,535), this means any bits not in this range are dropped (zeroed).
 Then, with the total, you must find `y` such that `y = x^(3/2)`.
 For example, to get this solution, I would take x (which is the total), then raise it to the power of 3, and then take the square root of that.
 This could be a great part for performance gain, how would you get `y`?
@@ -33,6 +34,9 @@ Add as little or as much as you'd like, just nothing other than that.
 __Compulsory__ is your GitHub account.
 Also add in this file your compiler/interpreter, and the version, and preferably a link to this compiler/interpreter.
 Instructions on how to build/run the program would also be helpful.
+
+## Generating
+The original method to generate the file was to use `generate.py`, but Python is extremely slow, so to save time we will be using `generate.exe`. You have to build `generate.exe` by yourself, and you can do this by running 'go build' in the directory 'generate'.
 
 ## For Timing Your Code
 Since this is transcending programming languages, we can't use any language specific timers.
@@ -51,4 +55,4 @@ Now _Go!_
 ## Leaderboard
 | Place | LangPlace | Username | Language | Time (ms) |
 | ----- | --------- | -------- | -------- | --------- |
-| 1     | 1         | ChigBeef | Go       | 51,038    |
+| 1     | 1         | ChigBeef | Go       | 41,619    |
