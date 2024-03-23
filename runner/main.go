@@ -15,6 +15,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"os/exec"
@@ -24,12 +25,15 @@ import (
 func main() {
 	// Get the command
 	args := os.Args
-	if len(args) != 2 {
+	if len(args) < 2 {
+		log.Println("args should come in this way [path/executable, ...args]")
 		log.Fatal("give me something to time!")
 	}
 	command := args[1]
+	cmdArgs := args[1:]
 
 	cmd := exec.Command(command)
+	cmd.Args = cmdArgs
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 
@@ -49,5 +53,6 @@ func main() {
 
 	// Show how long it took
 	elapsed := end.UnixMilli() - start.UnixMilli()
-	log.Println("executed in", elapsed, "ms")
+	fmt.Println()
+	log.Println("\nexecuted in", elapsed, "ms")
 }
