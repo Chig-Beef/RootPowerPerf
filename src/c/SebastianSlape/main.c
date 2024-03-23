@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 #include <stdint.h>
 
 // Newton–Raphson method
@@ -44,20 +45,9 @@ int main() {
 			p = strtok(NULL, ",");
 		}
 
-		// If I squish the result to an int16 by clamping, lineTotal will always be equal to 65,535 as lineTotal never goes below 30,000,000 let alone below 65,535.
-		//
-		// I looked at your implementation and when you "squish" the sum to an int16 using the line "sum := uint16(rawSum)" it actually trunicates the rest of the digits
-		// That means that a number like 33033787 will be trunicated to 3643.
-		//
-		//  Decimal                Binary
-		// 33033787: 00000001 11111000 00001110 00111011
-		//     3643:                   00001110 00111011
-		//
-		// I ended up doing what you did by using the "and" operator on 65535 (11111111 11111111). If this is correct and by "squish" you meant trunicate the binary then please make the 
-		// infomation page clearer about this as this might be the most important part of the challenge.
 		lineTotal = lineTotal & 65535;
 
-		int64_t lineFinal = (int64_t)(lineTotal * squareRoot(lineTotal));
+		double lineFinal = trunc(lineTotal * squareRoot(lineTotal));
 
 		if (max < lineFinal) {
 			max = lineFinal;
@@ -71,7 +61,7 @@ int main() {
 		count++;
 	}
 
-	double mean = (int64_t)(total / count);
+	double mean = trunc(total / count);
 
 	printf("MIN: %f\n",min);
 	printf("MAX: %f\n",max);
