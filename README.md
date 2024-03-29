@@ -53,6 +53,7 @@ I have put in my baseline implementation in Go, which may help you with any othe
 Now _Go!_
 
 ## Leaderboard
-| Place | LangPlace | Username | Language | Time (ms) |
-| ----- | --------- | -------- | -------- | --------- |
-| 1     | 1         | ChigBeef | Go       | 41,619    |
+| Place | LangPlace | Username       | Language | Time (ms) |
+| ----- | --------- | -------------- | -------- | --------- |
+| 1     | 1         | ChigBeef       | Go       | 41,619    |
+| 2     | 1         | SebastianSlape | C        | 82,619    |
